@@ -51,7 +51,7 @@ export class CreateEventComponent implements OnInit {
     this.loading = true;
 
     // setTimeout(() => {
-      this.router.navigate(['event/my-events/dashboard']);
+      this.router.navigate(['events/my-events/dashboard']);
       this.loading = false;
     // }, 1500);
 

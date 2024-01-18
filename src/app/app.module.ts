@@ -58,16 +58,17 @@ import { AppComponent } from './app.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { AuthComponent } from './auth/auth.component';
-import { MyEventComponent } from './event/my-event/my-event.component';
-import { CreateEventComponent } from './event/create-event/create-event.component';
-import { MyEventNavigationComponent } from './event/my-event/my-event-navigation/my-event-navigation.component';
+import { MyEventComponent } from './events/my-event/my-event.component';
+import { CreateEventComponent } from './events/create-event/create-event.component';
+import { MyEventNavigationComponent } from './events/my-event/my-event-navigation/my-event-navigation.component';
 import { LandingFixService } from './landing-page/landing-fix.service';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './landing-page/footer/footer.component';
 import { IntroComponent } from './landing-page/intro/intro.component';
 import { GetAppComponent } from './landing-page/get-app/get-app.component';
 import { GalleryModule } from 'ng-gallery';
-import { MyEventDashboardComponent } from './event/my-event/my-event-dashboard/my-event-dashboard.component';
+import { MyEventDashboardComponent } from './events/my-event/my-event-dashboard/my-event-dashboard.component';
+import { eventsComponent } from './events/events.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { MyEventDashboardComponent } from './event/my-event/my-event-dashboard/m
     IntroComponent,
     GetAppComponent,
     FooterComponent,
-    MyEventDashboardComponent
+    MyEventDashboardComponent,
+    eventsComponent
 
   ],
   imports: [

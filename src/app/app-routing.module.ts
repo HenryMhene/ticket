@@ -5,10 +5,11 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { UnauthGuard } from './auth/unauth.guard';
 import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './auth/auth.guard';
-import { MyEventComponent } from './event/my-event/my-event.component';
+import { MyEventComponent } from './events/my-event/my-event.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-import { CreateEventComponent } from './event/create-event/create-event.component';
-import { MyEventDashboardComponent } from './event/my-event/my-event-dashboard/my-event-dashboard.component';
+import { CreateEventComponent } from './events/create-event/create-event.component';
+import { MyEventDashboardComponent } from './events/my-event/my-event-dashboard/my-event-dashboard.component';
+import { eventsComponent } from './events/events.component';
 
 const routes: Routes = [
   {
@@ -54,29 +55,28 @@ const routes: Routes = [
   //   data: { allowHeader: true, allowEventHeader: false }
   // },
   {
-    path: 'event/my-events',
+    path: 'events/my-events',
     component: MyEventComponent,
     canActivate: [AuthGuard],
     data: { allowHeader: false, allowEventHeader: true }
   },
   {
-    path: 'event/create-event',
+    path: 'events/create-event',
     component: CreateEventComponent,
     canActivate: [AuthGuard],
     data: { allowHeader: true }
   },
   {
-    path: 'event/my-events/dashboard',
+    path: 'events/my-events/dashboard',
     component: MyEventDashboardComponent,
     canActivate: [AuthGuard],
     data: { allowHeader: false, allowEventHeader: true }
   },
-  // {
-  //   path: 'Events/my-Events/products',
-  //   component: MyEventsProductsComponent,
-  //   canActivate: [AuthGuard],
-  //   data: { allowHeader: false, allowEventHeader: true }
-  // },
+  {
+    path: '/events',
+    component: eventsComponent,
+    data: { allowHeader: false, allowEventHeader: true }
+  },
   // {
   //   path: 'Events/my-Events/Events-setup',
   //   component: MyEventsSetupComponent,

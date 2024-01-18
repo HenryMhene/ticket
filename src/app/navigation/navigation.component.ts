@@ -49,7 +49,7 @@ export class NavigationComponent {
   }
 
   async openMyEvents() {
-    this.router.navigateByUrl('/event/my-event/dashboard');
+    this.router.navigateByUrl('/events/my-events/dashboard');
   }
 
   async reloadHeader() {

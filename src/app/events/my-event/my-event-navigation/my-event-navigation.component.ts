@@ -50,23 +50,23 @@ export class MyEventNavigationComponent implements OnInit{
 }
 
   async goToDashBoard(): Promise<void> {
-      this.router.navigateByUrl('event/my-event/dashboard');
+      this.router.navigateByUrl('events/my-events/dashboard');
   }
 
   async goToMyProducts(): Promise<void> {
-      // this.router.navigateByUrl('event/my-event/products');
+      // this.router.navigateByUrl('events/my-events/products');
   }
 
   async goToMyEventSetup(): Promise<void> {
-    this.router.navigateByUrl('event/my-event/event-setup');
+    this.router.navigateByUrl('events/my-events/event-setup');
   }
 
   async goToHelpCenter(): Promise<void> {
-    this.router.navigateByUrl('event/my-event/help-center');
+    this.router.navigateByUrl('events/my-events/help-center');
   }
 
   async addProduct(){
-    this.router.navigateByUrl('event/my-event/add-product');
+    this.router.navigateByUrl('events/my-events/add-product');
     // const dialogRef = this.dialog.open(MyeventProductsAddComponent, {
     //   width: '500px',
     //   data: { },
