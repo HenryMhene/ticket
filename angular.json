@@ -28,7 +28,8 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "src/polyfills.ts"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -37,6 +38,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/styles/app.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -97,6 +99,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/@aws-amplify/ui-angular/theme.css",
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []

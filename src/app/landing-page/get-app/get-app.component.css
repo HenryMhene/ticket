@@ -1,0 +1,30 @@
+.get-app {
+    padding-top: 3rem;
+    /* padding-bottom: 5rem; */
+  }
+
+
+.download-text {
+    /* font-size: 3rem; */
+    margin-bottom: 2rem !important;
+    margin-top: 0 !important;
+}
+
+  .ios-image{
+    width: 11vw;
+  }
+
+  .android-image{
+    width: 13vw;
+  }
+
+  @media (max-width: 740px) {
+    .ios-image{
+      width: 30vw !important;
+    }
+
+    .android-image{
+      width: 36vw !important;
+    }
+
+  }

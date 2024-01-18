@@ -1,0 +1,52 @@
+@import '@aws-amplify/ui/dist/styles.css';
+
+/** These fonts are added in only temporarily until Angular has it's own theming system */
+
+:root {
+  --amplify-colors-primary-100: rgb(60, 60, 60);
+  --amplify-colors-primary-90: rgb(45, 45, 45);
+  --amplify-colors-primary-80: rgb(40, 40, 40);
+  --amplify-colors-primary-60: rgb(30, 30, 30);
+  --amplify-colors-primary-40: rgb(20, 20, 20);
+  --amplify-colors-primary-20: rgb(10, 10, 10);
+  --amplify-colors-primary-10: rgb(0, 0, 0);
+}
+
+.amplify-card {
+  background-color: var(--amplify-colors-background-secondary);
+}
+.amplify-card--outlined {
+  border-color: var(--amplify-colors-black);
+}
+.amplify-heading--6 {
+  color: var(--amplify-colors-secondary-80);
+}
+.amplify-text {
+  color: var(--amplify-colors-black);
+}
+
+
+html {
+  font-family: var(--amplify-fonts-default-static);
+}
+
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: var(--amplify-fonts-default-variable);
+  }
+}
+
+.federated-sign-in-container {
+  flex-direction: column;
+  padding: 0 0 1rem 0;
+}
+
+.federated-sign-in-button {
+  display: block;
+}
+
+.federated-sign-in-button-row {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

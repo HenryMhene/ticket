@@ -1,0 +1,141 @@
+<section class="ticket-section">
+  <span class="ticket-span">
+    <div class="ticket-div">
+      <div class="ticket-container">
+
+        <amplify-authenticator initialState="signUp" [services]="services">
+          <ng-template amplifySlot="header">
+            <div style="padding: var(--amplify-space-large); text-align: center">
+
+              <button routerLink="/landing" style="width: 166px; margin-right: 10px;" mat-icon-button >
+              <!-- <mat-icon svgIcon="obs_logo_white" style="z-index: 6; width: 80%;"></mat-icon> -->
+              Tickets
+
+            </button>
+
+            </div>
+          </ng-template>
+
+          <ng-template amplifySlot="sign-in-header">
+            <h3 class="amplify-heading" style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)">
+              Sign in to your account
+            </h3>
+          </ng-template>
+
+          <ng-template amplifySlot="sign-in-footer">
+            <div style="text-align: center">
+              <button (click)="authenticator.toForgotPassword()" class="amplify-button amplify-field-group__control"
+                data-fullwidth="false" data-size="small" data-variation="link" type="button"
+                style="font-weight: normal">
+                Reset Password
+              </button>
+            </div>
+          </ng-template>
+
+          <ng-template amplifySlot="sign-up-header">
+            <h3 class="amplify-heading" style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)">
+              Create a new account
+            </h3>
+          </ng-template>
+
+
+  <!-- sign-up-field override -->
+  <ng-template
+    amplifySlot="sign-up-form-fields"
+    let-validationErrors="validationErrors"
+  >
+    <!-- Re-use default `Authenticator.SignUp.FormFields` -->
+    <amplify-sign-up-form-fields></amplify-sign-up-form-fields>
+
+    <!-- Append & require Terms & Conditions field to sign up -->
+    <amplify-checkbox
+      [errorMessage]="validationErrors.acknowledgement"
+      [hasError]="!!validationErrors.acknowledgement"
+      name="acknowledgement"
+      value="yes"
+    >
+      I agree with the Terms & Conditions
+    </amplify-checkbox>
+  </ng-template>
+
+
+
+
+          <ng-template amplifySlot="sign-up-footer">
+            <div style="text-align: center">
+              <button (click)="authenticator.toSignIn()" class="amplify-button amplify-field-group__control"
+                data-fullwidth="false" data-size="small" data-variation="link" type="button"
+                style="font-weight: normal">
+                Back to Sign In
+              </button>
+            </div>
+          </ng-template>
+
+          <ng-template amplifySlot="footer">
+            <div style="padding: var(--amplify-space-large); text-align: center">
+              <p class="amplify-text" style="color: var(--amplify-colors-neutral-80)">
+                © All Rights Reserved
+              </p>
+            </div>
+          </ng-template>
+
+          <ng-template amplifySlot="confirm-sign-up-header">
+            <h3 class="amplify-heading" style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)">
+              Enter Information:
+            </h3>
+          </ng-template>
+
+          <ng-template amplifySlot="confirm-sign-up-footer">
+            <div>Footer Information</div>
+          </ng-template>
+
+          <ng-template amplifySlot="setup-totp-header">
+            <h3 class="amplify-heading" style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)">
+              Enter Information:
+            </h3>
+          </ng-template>
+
+          <ng-template amplifySlot="setup-totp-footer">
+            <div>Footer Information</div>
+          </ng-template>
+
+          <ng-template amplifySlot="confirm-sign-in-header">
+            <h3 class="amplify-heading" style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)">
+              Enter Information:
+            </h3>
+          </ng-template>
+
+          <ng-template amplifySlot="confirm-sign-in-footer">
+            <div>Footer Information</div>
+          </ng-template>
+
+          <ng-template amplifySlot="forgot-password-header">
+            <h3 class="amplify-heading" style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)">
+              Enter Information:
+            </h3>
+          </ng-template>
+
+          <ng-template amplifySlot="forgot-password-footer">
+            <div>Footer Information</div>
+          </ng-template>
+
+          <ng-template amplifySlot="confirm-reset-password-header">
+            <h3 class="amplify-heading" style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)">
+              Enter Information:
+            </h3>
+          </ng-template>
+
+          <ng-template amplifySlot="confirm-reset-password-footer">
+            <div>Footer Information</div>
+          </ng-template>
+
+          <ng-template amplifySlot="authenticated" let-user="user" let-signOut="signOut">
+            <h2>Welcome, {{ user.email }}!</h2>
+            <button (click)="signOut()">Sign Out</button>
+          </ng-template>
+        </amplify-authenticator>
+
+      </div>
+    </div>
+  </span>
+</section>

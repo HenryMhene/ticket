@@ -1,0 +1,30 @@
+<section class="ticket-section">
+  <span class="ticket-span">
+    <div class="ticket-div">
+      <div class="ticket-container">
+        <div *ngIf="loading">
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+        <form class="app-form" *ngIf="!loading" [formGroup]="eventNameForm">
+          <div class="text-center" style="padding-bottom: 12px;">
+            <strong>Name your event (Example: My event Name)</strong>
+          </div>
+          <table class="app-full-width" cellspacing="0">
+            <tr>
+              <td>
+                <mat-form-field class="app-full-width">
+                  <input matInput required name="eventname" placeholder="event Name" type="text"
+                    formControlName="eventname" [(ngModel)]="value">
+                  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </td>
+            </tr>
+            <button mat-stroked-button [disabled]="shouldEnableSubmit()" (click)="createEvent()">Create</button>
+          </table>
+        </form>
+      </div>
+    </div>
+  </span>
+</section>
