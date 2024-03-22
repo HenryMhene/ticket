@@ -9,11 +9,24 @@
       "UnauthRoleName": "amplify-ticket-dev-150058-unauthRole",
       "StackName": "amplify-ticket-dev-150058",
       "StackId": "arn:aws:cloudformation:ap-southeast-2:339713033427:stack/amplify-ticket-dev-150058/b2136c70-b35a-11ee-8732-0645a8936f93",
-      "AmplifyAppId": "d2znda9oerz040"
+      "AmplifyAppId": "d2znda9oerz040",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-ticket-dev-150058-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
         "ticket3e597c36": {}
+      },
+      "function": {
+        "eventsLambda": {
+          "deploymentBucketName": "amplify-ticket-dev-150058-deployment",
+          "s3Key": "amplify-builds/eventsLambda-7a64647251367843464a-build.zip"
+        }
+      },
+      "storage": {
+        "ticket": {}
+      },
+      "api": {
+        "ticketApi": {}
       }
     }
   }

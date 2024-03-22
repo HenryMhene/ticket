@@ -8,6 +8,7 @@ import { ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 // import Auth, { CognitoUser } from '@aws-amplify/auth';
 import Storage from '@aws-amplify/storage';
+import { AuthenticatorService } from '@aws-amplify/ui-angular';
 // import { AuthService } from 'src/app/auth/auth.service';
 // import { AuthComponent } from 'src/app/auth/auth.component';
 // import { MyeventProductsAddComponent } from '../my-event-products/my-event-products-add/my-event-products-add.component';
@@ -28,6 +29,7 @@ export class MyEventNavigationComponent implements OnInit{
   constructor(
     public dialog: MatDialog,
     private router: Router,
+    public authenticator: AuthenticatorService,
     // public auth: AuthService,
     media: MediaMatcher,
     changeDetectorRef: ChangeDetectorRef

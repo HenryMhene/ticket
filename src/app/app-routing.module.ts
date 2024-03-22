@@ -73,9 +73,9 @@ const routes: Routes = [
     data: { allowHeader: false, allowEventHeader: true }
   },
   {
-    path: '/events',
+    path: 'events',
     component: eventsComponent,
-    data: { allowHeader: false, allowEventHeader: true }
+    data: { allowHeader: true, allowEventHeader: false }
   },
   // {
   //   path: 'Events/my-Events/Events-setup',

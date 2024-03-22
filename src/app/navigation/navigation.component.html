@@ -47,7 +47,7 @@
 
       <button [style.margin.left]="mobileQuery.matches ? 15 : 0" style="width: 166px; margin-right: 10px;"
         mat-icon-button (click)="goToDashBoard()">
-        <!-- <mat-icon svgIcon="obs_logo_white" style="z-index: 6; width: 80%;"></mat-icon> -->
+        <!-- <mat-icon svgIcon="ticket_yellow_black" style="z-index: 6; width: 80%;"></mat-icon> -->
         Tickets
       </button>
       &nbsp;
@@ -106,7 +106,7 @@
       </button>
 
       <div style="float: right; padding-top: 6px;">
-        <button *ngIf="!mobileQuery.matches" routerLink="/events/browse-events" mat-button>Browse Events</button>
+        <button *ngIf="!mobileQuery.matches" routerLink="/events" mat-button>Browse Events</button>
         <button *ngIf="!mobileQuery.matches" routerLink="/events/create-event" mat-button>Create Events</button>
         <button *ngIf="!mobileQuery.matches" routerLink="/help-centre" mat-button>Help Centre
           <!-- <span matSuffix><mat-icon style="color: white;">menu</mat-icon></span> -->
@@ -147,7 +147,7 @@
         <mat-icon>people_outline</mat-icon>
         <span>Sign Up</span>
       </button>
-      <button routerLink="/products" mat-menu-item>
+      <button routerLink="/events" mat-menu-item>
         <mat-icon>search</mat-icon>
         <span>Browse Events</span>
       </button>
@@ -214,7 +214,7 @@
         routerLink="/account/notifications">Notifications</button>
       <button *ngIf="user && user.email_verified" mat-menu-item routerLink="/account/payment_methods">Payments</button>
       <button *ngIf="user && user.email_verified" mat-menu-item [matMenuTriggerFor]="settings">Settings</button>
-      <button mat-menu-item (click)="logout();">Logout</button>
+      <button mat-menu-item (click)="authenticator.signOut();">Logout</button>
     </mat-menu>
     <mat-menu #settings="matMenu">
       <button *ngIf="user && user.email_verified" mat-menu-item routerLink="/auth/profile">Profile</button>

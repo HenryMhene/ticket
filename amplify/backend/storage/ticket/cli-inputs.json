@@ -1,0 +1,10 @@
+{
+  "resourceName": "ticket",
+  "tableName": "events",
+  "partitionKey": {
+    "fieldName": "EventID",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

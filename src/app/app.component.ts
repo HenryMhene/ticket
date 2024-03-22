@@ -41,6 +41,11 @@ export class AppComponent {
       );
 
       this.matIconRegistry.addSvgIcon(
+        `ticket_yellow_black`,
+        this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/ticket_yellow_black.svg')
+      );
+
+      this.matIconRegistry.addSvgIcon(
         `obs_logo_white_label`,
         this.domSanitizer.bypassSecurityTrustResourceUrl('../assets/images/logo_transparent_white.svg')
       );

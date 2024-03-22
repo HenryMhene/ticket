@@ -1,44 +1,22 @@
 import { Resource } from './Resource';
-import { Offer } from './offer';
-import { Question } from './question';
-import { Review } from './review';
-export class Task extends Resource {
-    Id: string | undefined;
-    Offers: Array<Offer> | undefined;
-    Questions: Array<Question> | undefined;
-    Reviews: Array<Review> | undefined;
-    CreatorId: string | undefined;
-    CreatorName: string | undefined;
-    CreatorPicture: string | undefined;
-    Summary: string | undefined;
-    Description: string | undefined;
-    Price: number | undefined;
-    Currency: number | undefined;
-    TaskLocation: string | undefined;
-    TaskLocationVicinity: string | undefined;
-    TaskLocationCountry: string | undefined;
-    GeoLocation: Array<number> | undefined;
-    DueDate: string | undefined;
-    tempDueDate: string | undefined;
-    TaskStatus: string | undefined;
-    Category: string | undefined;
-    NumberOfOffers: number | undefined;
-    Remote: boolean | undefined;
-    Active: boolean | undefined;
-    AssignedUser: string | undefined;
-    PrivateChatId: string | undefined;
-    PaymentRequested: boolean | undefined;
-    MustHaves: Array<string> | undefined;
-    CreatedAt: string | any | undefined;
-    assignedTasks: Array<Task> | undefined;
-    completedTasks: Array<Task> | undefined;
-    postedTasks: Array<Task> | undefined;
-    pendingTasks: Array<Task> | undefined;
-    draftTasks: Array<Task> | undefined;
-    Photos: Array<string> | undefined;
-    canAddReview: boolean | undefined;
-    canAddReviewForName: string | undefined;
-    canAddReviewForId: string | undefined;
-
-
+// event.model.ts
+export class Event extends Resource{
+  eventID!: string;
+  eventName!: string;
+  description!: string;
+  startDateTime!: string; // Consider using a Date object if applicable
+  endDateTime!: string;   // Consider using a Date object if applicable
+  venueID!: string;       // Foreign Key referencing Venues
+  organizerUserID!: string; // Foreign Key referencing Users
+  categories!: string[];   // List of event categories
+  tags!: string[];         // List of event tags
+  imageURL!: string;       // URL pointing to event image/poster
+  capacity!: number;
+  ticketTypes!: string[];  // List of different ticket types
+  salesStartDate!: string; // Consider using a Date object if applicable
+  salesEndDate!: string;   // Consider using a Date object if applicable
+  status!: string;         // Event status (e.g., upcoming, ongoing, completed)
+  externalLinks!: string[]; // List of external links related to the event
+  createdDateTime!: string; // Consider using a Date object if applicable
+  lastUpdatedDateTime!: string; // Consider using a Date object if applicable
 }

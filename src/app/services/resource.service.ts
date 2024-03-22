@@ -8,6 +8,8 @@ import { QueryOptions } from './query.options';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { catchError, retry } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { get } from 'aws-amplify/api';
 export class ResourceService<T extends Resource> {
   constructor(
     private httpClient: HttpClient,
@@ -15,71 +17,93 @@ export class ResourceService<T extends Resource> {
     private endpoint: string,
     private serializer: Serializer) { }
 
-  public create(item: T): Observable<T> {
-    return this.httpClient
-      .post<T>(`${this.url}/${this.endpoint}`, this.serializer.toJson(item)).pipe(
-        retry(3), // retry a failed request up to 3 times
-        catchError(this.handleError) // then handle the error
-      )
-      .map(data => this.serializer.fromJson(data) as T);
-  }
-
-  public update(item: T): Observable<T> {
-    return this.httpClient
-      .put<T>(`${this.url}/${this.endpoint}`,
-        this.serializer.toJson(item)).pipe(
+    list(queryOptions: QueryOptions): Observable<T[]> {
+      return this.httpClient
+        .get(`${this.url}/${this.endpoint}?${queryOptions.toQueryString()}`).pipe(
           retry(3), // retry a failed request up to 3 times
           catchError(this.handleError) // then handle the error
         )
-      .map(data => this.serializer.fromJson(data) as T);
-  }
+        .map((data: any) => this.convertData(data.goods));
+    }
 
-  public getBankAccount(item: T, UserId: string): Observable<T> {
-    return this.httpClient
-      .get<T>(`${this.url}/${UserId}?UserId=${UserId}`,
-        this.serializer.toJson(item)).pipe(
-          retry(3), // retry a failed request up to 3 times
-          catchError(this.handleError) // then handle the error
-        )
-      .map(data => this.serializer.fromJson(data) as T);
-  }
+    async getEvents() {
+      try {
+        const restOperation = get({
+          apiName: 'ticketApi',
+          path: `/${this.endpoint}`
+        });
+        const response = await restOperation.response;
+        console.log('GET call succeeded: ', response);
 
-  public saveBankAccount(item: T): Observable<T> {
-    return this.httpClient
-      .post<T>(`${this.url}`,
-        this.serializer.toJson(item)).pipe(
-          retry(3), // retry a failed request up to 3 times
-          catchError(this.handleError) // then handle the error
-        )
-      .map(data => this.serializer.fromJson(data) as T);
-  }
+        const { body } = await restOperation.response;
 
-  public read(id: string): Observable<T> {
-    return this.httpClient
-      .get(`${this.url}/${this.endpoint}/${id}`).pipe(
-        retry(3), // retry a failed request up to 3 times
-        catchError(this.handleError) // then handle the error
-      )
-      .map((data: any) => this.serializer.fromJson(data.goods[0]) as T);
-  }
+        const json = await body.json();
 
-  getByUserEmail(email: string): Observable<T> {
-    return this.httpClient
-      .get(`${this.url}/${this.endpoint}/getbyemail/${email}`).pipe(
-        retry(3), // retry a failed request up to 3 times
-        catchError(this.handleError) // then handle the error
-      )
-      .map((data: any) => this.serializer.fromJson(data.goods[0]) as T);
-  }
+        console.log(json);
 
-  list(queryOptions: QueryOptions): Observable<T[]> {
-    return this.httpClient
-      .get(`${this.url}/${this.endpoint}?${queryOptions.toQueryString()}`).pipe(
-        retry(3), // retry a failed request up to 3 times
-        catchError(this.handleError) // then handle the error
-      )
-      .map((data: any) => this.convertData(data.goods));
-  }
+      } catch (error) {
+        console.log('GET call failed: ', error);
+      }
+    }
+
+  // public create(item: T): Observable<T> {
+  //   return this.httpClient
+  //     .post<T>(`${this.url}/${this.endpoint}`, this.serializer.toJson(item)).pipe(
+  //       retry(3), // retry a failed request up to 3 times
+  //       catchError(this.handleError) // then handle the error
+  //     )
+  //     .map(data => this.serializer.fromJson(data) as T);
+  // }
+
+  // public update(item: T): Observable<T> {
+  //   return this.httpClient
+  //     .put<T>(`${this.url}/${this.endpoint}`,
+  //       this.serializer.toJson(item)).pipe(
+  //         retry(3), // retry a failed request up to 3 times
+  //         catchError(this.handleError) // then handle the error
+  //       )
+  //     .map(data => this.serializer.fromJson(data) as T);
+  // }
+
+  // public getBankAccount(item: T, UserId: string): Observable<T> {
+  //   return this.httpClient
+  //     .get<T>(`${this.url}/${UserId}?UserId=${UserId}`,
+  //       this.serializer.toJson(item)).pipe(
+  //         retry(3), // retry a failed request up to 3 times
+  //         catchError(this.handleError) // then handle the error
+  //       )
+  //     .map(data => this.serializer.fromJson(data) as T);
+  // }
+
+  // public saveBankAccount(item: T): Observable<T> {
+  //   return this.httpClient
+  //     .post<T>(`${this.url}`,
+  //       this.serializer.toJson(item)).pipe(
+  //         retry(3), // retry a failed request up to 3 times
+  //         catchError(this.handleError) // then handle the error
+  //       )
+  //     .map(data => this.serializer.fromJson(data) as T);
+  // }
+
+  // public read(id: string): Observable<T> {
+  //   return this.httpClient
+  //     .get(`${this.url}/${this.endpoint}/${id}`).pipe(
+  //       retry(3), // retry a failed request up to 3 times
+  //       catchError(this.handleError) // then handle the error
+  //     )
+  //     .map((data: any) => this.serializer.fromJson(data.goods[0]) as T);
+  // }
+
+  // getByUserEmail(email: string): Observable<T> {
+  //   return this.httpClient
+  //     .get(`${this.url}/${this.endpoint}/getbyemail/${email}`).pipe(
+  //       retry(3), // retry a failed request up to 3 times
+  //       catchError(this.handleError) // then handle the error
+  //     )
+  //     .map((data: any) => this.serializer.fromJson(data.goods[0]) as T);
+  // }
+
+
 
   // search(queryOptions: QueryOptions): Observable<T[]> {
   //   return this.httpClient
@@ -188,11 +212,11 @@ export class ResourceService<T extends Resource> {
   //     .map((data: any) => this.convertData(data.goods));
   // }
 
-  getCountry(): Observable<T[]> {
-    return this.httpClient
-      .get(`http://ip-api.com/json/24.48.0.1`)
-      .map((data: any) => data.goods);
-  }
+  // getCountry(): Observable<T[]> {
+  //   return this.httpClient
+  //     .get(`http://ip-api.com/json/24.48.0.1`)
+  //     .map((data: any) => data.goods);
+  // }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

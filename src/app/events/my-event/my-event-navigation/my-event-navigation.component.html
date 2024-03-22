@@ -9,7 +9,7 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
           <mat-icon>search</mat-icon>
-          <span>Browse Products</span>
+          <span>Browse Events</span>
         </button>
       </mat-menu>
       <button [style.margin.left]="mobileQuery.matches ? 15 : 0" style="width: 166px; margin-right: 10px;"
@@ -21,16 +21,16 @@
       </button>
       &nbsp;
       <button *ngIf="!mobileQuery.matches" mat-button (click)="goToMyProducts()" [matMenuTriggerFor]="productsMenu">
-        <mat-icon>article</mat-icon> Products
+        <mat-icon>article</mat-icon> Events
       </button>
       <mat-menu #productsMenu="matMenu">
         <button mat-menu-item routerLink="/events/my-events/list-products">
           <mat-icon>list</mat-icon>
-          <span>My Products</span>
+          <span>My Events</span>
         </button>
         <button mat-menu-item (click)="addProduct()">
           <mat-icon>add_box</mat-icon>
-          <span>Add Product</span>
+          <span>Add Event</span>
         </button>
       </mat-menu>
       &nbsp;
@@ -57,7 +57,7 @@
         <button *ngIf="user && user.email_verified" mat-menu-item [matMenuTriggerFor]="settings">
           Settings
         </button>
-        <button mat-menu-item (click)="logout()">Logout</button>
+        <button mat-menu-item (click)="authenticator.signOut();">Logout</button>
       </mat-menu>
       <mat-menu #settings="matMenu">
         <button *ngIf="user && user.email_verified" mat-menu-item routerLink="/auth/profile">
@@ -67,12 +67,10 @@
           Notifications
         </button>
       </mat-menu>
-      <button style="margin-left: 10px; float: right;" *ngIf="user" mat-icon-button [matMenuTriggerFor]="appMenu">
-        <div class="text-center">
-          <img style="width:40px;" [src]="profile_image"
-            onError="this.src='https://s3-ap-southeast-2.amazonaws.com/afritasks-profile-pictures/default_white.png';"
-            alt="Profile" />
-        </div>
+      <button style="margin-left: 10px; float: right;"  mat-icon-button [matMenuTriggerFor]="appMenu">
+        <div class="text-center"><img style="width:40px;" [src]="profile_image"
+          onError="this.src='https://picsum.photos/200/300';"
+          alt="Profile" /></div>
       </button>
       <div style="float: right;">
         <button *ngIf="numberOfNewNotifications == 0" style="margin-left: 10px; float: right;" mat-icon-button>
@@ -128,7 +126,7 @@
       <button *ngIf="user && user.email_verified" mat-menu-item [matMenuTriggerFor]="settings">
         Settings
       </button>
-      <button mat-menu-item (click)="logout()">Logout</button>
+      <button mat-menu-item (click)="authenticator.signOut();">Logout</button>
     </mat-menu>
     <mat-menu #settings="matMenu">
       <button *ngIf="user && user.email_verified" mat-menu-item routerLink="/auth/profile">
