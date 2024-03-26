@@ -69,6 +69,7 @@ import { GetAppComponent } from './landing-page/get-app/get-app.component';
 import { GalleryModule } from 'ng-gallery';
 import { MyEventDashboardComponent } from './events/my-event/my-event-dashboard/my-event-dashboard.component';
 import { eventsComponent } from './events/events.component';
+import { EventListComponent } from './events/event-list/event-list.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { eventsComponent } from './events/events.component';
     GetAppComponent,
     FooterComponent,
     MyEventDashboardComponent,
-    eventsComponent
+    eventsComponent,
+    EventListComponent
 
   ],
   imports: [

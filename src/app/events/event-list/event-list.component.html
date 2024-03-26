@@ -1,0 +1,10 @@
+<div *ngIf="events && events.length > 0; else noEvents">
+  <div *ngFor="let event of events">
+    <h2>{{ event.eventName }}</h2>
+    <!-- Add more event details here -->
+  </div>
+</div>
+
+<ng-template #noEvents>
+  <p>No events found.</p>
+</ng-template>
