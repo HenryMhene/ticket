@@ -5,16 +5,7 @@
       "name": "/events",
       "lambdaFunction": "eventsLambda",
       "permissions": {
-        "setting": "protected",
-        "auth": [
-          "create",
-          "read",
-          "update",
-          "delete"
-        ],
-        "guest": [
-          "read"
-        ]
+        "setting": "open"
       }
     }
   }
