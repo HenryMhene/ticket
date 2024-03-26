@@ -66,7 +66,47 @@ The application is built with Angular, a popular framework for building web appl
 
 ## 🤝 Contributing
 
-(Add contribution guidelines here if applicable)
+Contributions, issues and feature requests are welcome!
+
+Here are some ways you can contribute:
+
+- 🐛 Submit [issues](<repository-issues-url>) to help us improve
+- 🛠 Develop new features or fix bugs and submit [pull requests](<repository-pulls-url>)
+- 📖 Improve or translate documentation
+- 💡 Submit new feature ideas
+
+### Development
+
+Follow these steps to get started with development:
+
+1. Fork the repository and clone it to your local machine
+2. Navigate to your local repository: `cd ticket-events`
+3. Install the dependencies: `npm install`
+4. Start the development server: `npm start`
+
+Before submitting a pull request, please make sure your code follows our coding standards and all tests pass.
+
+### Coding Standards
+
+- Follow the [Angular Style Guide](https://angular.io/guide/styleguide)
+- Write clean, readable and maintainable code
+- Comment your code where necessary
+
+### Testing
+
+- Write tests for all new features and update tests for existing changes
+- Ensure all tests pass before submitting a pull request
+
+### Pull Requests
+
+- Fork the repository and create your branch from `master`
+- If you've added code that should be tested, add tests
+- If you've changed APIs, update the documentation
+- Ensure the test suite passes
+- Make sure your code lints
+- Issue that pull request!
+
+We look forward to your contributions! 🎉
 
 ## 📄 License
 
