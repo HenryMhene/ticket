@@ -62,7 +62,7 @@ The Ticket Events application is a platform where users can view and manage even
 
 The application is built with Angular, a popular framework for building web applications, and AWS Amplify, a set of tools and services for building secure, scalable mobile and web applications.
 
-![Party Time](https://media.giphy.com/media/l3V0slU7u7quJuZ3O/giphy.gif)
+![Ticket GIF](https://media.giphy.com/media/3o7TKP9ln2Dr6ze6f6/giphy.gif)
 
 ## 🤝 Contributing
 
