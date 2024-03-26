@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Event } from '../models/event';
+import { ApiService } from '../services/api.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
-  private apiUrl = 'http://localhost:3000/events'; // Replace with your actual API URL
+  private apiName = 'ticketApi'; // Replace with your actual API name
+  private path = '/events'; // Replace with your actual path
 
-  constructor(private http: HttpClient) { }
+  constructor(private apiService: ApiService) { }
 
   getEvents(): Observable<Event[]> {
-    return this.http.get<Event[]>(this.apiUrl);
+    return this.apiService.getItems<Event>(this.apiName, this.path);
   }
 
   // Add other methods for creating, updating, and deleting events as needed
