@@ -19,8 +19,8 @@ export class CreateEventComponent implements OnInit {
     description: new FormControl("", [Validators.required]),
     // startDateTime: new FormControl("", [Validators.required]),
     // endDateTime: new FormControl("", [Validators.required]),
-    venueID: new FormControl("", [Validators.required]),
-    organizerUserID: new FormControl("", [Validators.required]),
+    venue: new FormControl("", [Validators.required]),
+    // organizerUserID: new FormControl("", [Validators.required]),
     categories: new FormControl([]), // Initialize as empty array
     tags: new FormControl([]), // Initialize as empty array
     imageURL: new FormControl(""),
@@ -73,13 +73,13 @@ export class CreateEventComponent implements OnInit {
   //   return this.eventForm.get("endDateTime");
   // }
 
-  get venueIDInput() {
+  get venueInput() {
     return this.eventForm.get("venueID");
   }
 
-  get organizerUserIDInput() {
-    return this.eventForm.get("organizerUserID");
-  }
+  // get organizerUserIDInput() {
+  //   return this.eventForm.get("organizerUserID");
+  // }
 
   get categoriesInput() {
     return this.eventForm.get("categories");

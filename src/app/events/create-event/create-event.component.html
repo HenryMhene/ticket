@@ -9,186 +9,157 @@
           <div class="text-center" style="padding-bottom: 12px;">
             <strong>Name your event (Example: My event Name)</strong>
           </div>
-          <table class="app-full-width" cellspacing="0">
-            <tr>
-              <td>
-                <mat-form-field class="app-full-width">
-                  <input matInput required name="eventName" placeholder="Event Name" type="text"
-                    formControlName="eventName">
-                  <button *ngIf="eventNameInput?.value" matSuffix mat-icon-button aria-label="Clear" (click)="eventNameInput?.reset()">
-                    <mat-icon>close</mat-icon>
-                  </button>
-                </mat-form-field>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <mat-form-field class="app-full-width">
-                  <textarea matInput required name="description" placeholder="Description"
-                    formControlName="description"></textarea>
-                  <button *ngIf="descriptionInput?.value" matSuffix mat-icon-button aria-label="Clear" (click)="descriptionInput?.reset()">
-                    <mat-icon>close</mat-icon>
-                  </button>
-                </mat-form-field>
-              </td>
-            </tr>
-<!-- Categories -->
-<tr>
-  <td>
-    <mat-form-field class="app-full-width">
-      <mat-label>Categories</mat-label>
-      <mat-select multiple formControlName="categories">
-        <!-- Replace with your actual categories -->
-        <mat-option *ngFor="let category of ['Category 1', 'Category 2', 'Category 3']" [value]="category">
-          {{category}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </td>
-</tr>
+          <mat-grid-list cols="2" rowHeight="90px" gutterSize="12px">
+            <mat-grid-tile>
+              <mat-form-field class="app-full-width">
+                <input matInput required name="eventName" placeholder="Event Name" type="text"
+                  formControlName="eventName">
+                <button *ngIf="eventNameInput?.value" matSuffix mat-icon-button aria-label="Clear"
+                  (click)="eventNameInput?.reset()">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </mat-form-field>
+            </mat-grid-tile>
 
-<!-- Tags -->
-<tr>
-  <td>
-    <mat-form-field class="app-full-width">
-      <mat-label>Tags</mat-label>
-      <mat-select multiple formControlName="tags">
-        <!-- Replace with your actual tags -->
-        <mat-option *ngFor="let tag of ['Tag 1', 'Tag 2', 'Tag 3']" [value]="tag">
-          {{tag}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </td>
-</tr>
+            <!-- Description -->
+            <mat-grid-tile colspan="2">
+              <mat-form-field class="app-full-width">
+                <textarea matInput required name="description" placeholder="Description" formControlName="description"
+                  ></textarea>
+                <mat-hint align="start">Enter your event description here</mat-hint>
+              </mat-form-field>
+            </mat-grid-tile>
 
-<!-- Image URL -->
-<tr>
-  <td>
-    <mat-form-field class="app-full-width">
-      <input matInput name="imageURL" placeholder="Image URL" type="url" formControlName="imageURL">
-    </mat-form-field>
-  </td>
-</tr>
+            <!-- Start Date Time -->
+            <!-- <mat-grid-tile>
+  <mat-form-field class="app-full-width">
+    <input matInput required name="startDateTime" placeholder="Start Date Time" type="datetime-local" formControlName="startDateTime">
+  </mat-form-field>
+</mat-grid-tile> -->
 
-<!-- Capacity -->
-<tr>
-  <td>
-    <mat-form-field class="app-full-width">
-      <input matInput name="capacity" placeholder="Capacity" type="number" formControlName="capacity">
-    </mat-form-field>
-  </td>
-</tr>
+            <!-- End Date Time -->
+            <!-- <mat-grid-tile>
+  <mat-form-field class="app-full-width">
+    <input matInput required name="endDateTime" placeholder="End Date Time" type="datetime-local" formControlName="endDateTime">
+  </mat-form-field>
+</mat-grid-tile> -->
 
-<!-- Ticket Types -->
-<tr>
-  <td>
-    <mat-form-field class="app-full-width">
-      <mat-label>Ticket Types</mat-label>
-      <mat-select multiple formControlName="ticketTypes">
-        <!-- Replace with your actual ticket types -->
-        <mat-option *ngFor="let ticketType of ['Type 1', 'Type 2', 'Type 3']" [value]="ticketType">
-          {{ticketType}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </td>
-</tr>
+            <!-- Venue ID -->
+            <mat-grid-tile>
+              <mat-form-field class="app-full-width">
+                <input matInput required name="venue" placeholder="Venue" type="text" formControlName="venue">
+              </mat-form-field>
+            </mat-grid-tile>
 
-<!-- Sales Start Date -->
-<!-- <tr>
-  <td>
-    <mat-form-field class="app-full-width">
-      <input matInput name="salesStartDate" placeholder="Sales Start Date" type="datetime-local" formControlName="salesStartDate">
-    </mat-form-field>
-  </td>
-</tr> -->
+            <!-- Organizer User ID -->
+            <!-- <mat-grid-tile>
+  <mat-form-field class="app-full-width">
+    <input matInput required name="organizerUserID" placeholder="Organizer User ID" type="text" formControlName="organizerUserID">
+  </mat-form-field>
+</mat-grid-tile> -->
 
-<!-- Sales End Date -->
-<!-- <tr>
-  <td>
-    <mat-form-field class="app-full-width">
-      <input matInput name="salesEndDate" placeholder="Sales End Date" type="datetime-local" formControlName="salesEndDate">
-    </mat-form-field>
-  </td>
-</tr> -->
+            <!-- Categories -->
+            <mat-grid-tile>
+              <mat-form-field class="app-full-width">
+                <mat-label>Categories</mat-label>
+                <mat-select multiple formControlName="categories">
+                  <!-- Replace with your actual categories -->
+                  <mat-option *ngFor="let category of ['Category 1', 'Category 2', 'Category 3']" [value]="category">
+                    {{category}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
 
-<!-- Status -->
-<tr>
-  <td>
-    <mat-form-field class="app-full-width">
-      <input matInput name="status" placeholder="Status" type="text" formControlName="status">
-    </mat-form-field>
-  </td>
-</tr>
+            <!-- Tags -->
+            <mat-grid-tile>
+              <mat-form-field class="app-full-width">
+                <mat-label>Tags</mat-label>
+                <mat-select multiple formControlName="tags">
+                  <!-- Replace with your actual tags -->
+                  <mat-option *ngFor="let tag of ['Tag 1', 'Tag 2', 'Tag 3']" [value]="tag">
+                    {{tag}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
 
-<!-- External Links -->
-<tr>
-  <td>
-    <mat-form-field class="app-full-width">
-      <mat-label>External Links</mat-label>
-      <mat-select multiple formControlName="externalLinks">
-        <!-- Replace with your actual external links -->
-        <mat-option *ngFor="let link of ['Link 1', 'Link 2', 'Link 3']" [value]="link">
-          {{link}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </td>
-</tr>
+            <!-- Image URL -->
+            <mat-grid-tile>
+              <mat-form-field class="app-full-width">
+                <input matInput name="imageURL" placeholder="Image URL" type="url" formControlName="imageURL">
+              </mat-form-field>
+            </mat-grid-tile>
 
-<!-- Created Date Time -->
-<!-- <tr>
-  <td>
-    <mat-form-field class="app-full-width">
-      <input matInput name="createdDateTime" placeholder="Created Date Time" type="datetime-local" formControlName="createdDateTime">
-    </mat-form-field>
-  </td>
-</tr> -->
+            <!-- Capacity -->
+            <mat-grid-tile>
+              <mat-form-field class="app-full-width">
+                <input matInput name="capacity" placeholder="Capacity" type="number" formControlName="capacity">
+              </mat-form-field>
+            </mat-grid-tile>
 
-<!-- Last Updated Date Time -->
-<!-- <tr>
-  <td>
-    <mat-form-field class="app-full-width">
-      <input matInput name="lastUpdatedDateTime" placeholder="Last Updated Date Time" type="datetime-local" formControlName="lastUpdatedDateTime">
-    </mat-form-field>
-  </td>
-</tr> -->
-            <!-- <tr>
-              <td>
-                <mat-form-field class="app-full-width">
-                  <input matInput required name="startDateTime" placeholder="Start Date Time" type="datetime-local"
-                    formControlName="startDateTime">
-                </mat-form-field>
-              </td>
-            </tr> -->
-            <!-- <tr>
-              <td>
-                <mat-form-field class="app-full-width">
-                  <input matInput required name="endDateTime" placeholder="End Date Time" type="datetime-local"
-                    formControlName="endDateTime">
-                </mat-form-field>
-              </td>
-            </tr> -->
-            <tr>
-              <td>
-                <mat-form-field class="app-full-width">
-                  <input matInput required name="venueID" placeholder="Venue ID" type="text"
-                    formControlName="venueID">
-                </mat-form-field>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <mat-form-field class="app-full-width">
-                  <input matInput required name="organizerUserID" placeholder="Organizer User ID" type="text"
-                    formControlName="organizerUserID">
-                </mat-form-field>
-              </td>
-            </tr>
-            <!-- Add more input fields for the other properties of the event model -->
-            <button mat-stroked-button type="submit" [disabled]="!eventForm.valid">Create</button>
-          </table>
+            <!-- Ticket Types -->
+            <mat-grid-tile>
+              <mat-form-field class="app-full-width">
+                <mat-label>Ticket Types</mat-label>
+                <mat-select multiple formControlName="ticketTypes">
+                  <!-- Replace with your actual ticket types -->
+                  <mat-option *ngFor="let ticketType of ['Type 1', 'Type 2', 'Type 3']" [value]="ticketType">
+                    {{ticketType}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <!-- Sales Start Date -->
+            <!-- <mat-grid-tile>
+  <mat-form-field class="app-full-width">
+    <input matInput name="salesStartDate" placeholder="Sales Start Date" type="datetime-local" formControlName="salesStartDate">
+  </mat-form-field>
+</mat-grid-tile> -->
+
+            <!-- Sales End Date -->
+            <!-- <mat-grid-tile>
+  <mat-form-field class="app-full-width">
+    <input matInput name="salesEndDate" placeholder="Sales End Date" type="datetime-local" formControlName="salesEndDate">
+  </mat-form-field>
+</mat-grid-tile> -->
+
+            <!-- Status -->
+            <mat-grid-tile>
+              <mat-form-field class="app-full-width">
+                <input matInput name="status" placeholder="Status" type="text" formControlName="status">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <!-- External Links -->
+            <mat-grid-tile>
+              <mat-form-field class="app-full-width">
+                <mat-label>External Links</mat-label>
+                <mat-select multiple formControlName="externalLinks">
+                  <!-- Replace with your actual external links -->
+                  <mat-option *ngFor="let link of ['Link 1', 'Link 2', 'Link 3']" [value]="link">
+                    {{link}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <!-- Created Date Time -->
+            <!-- <mat-grid-tile>
+  <mat-form-field class="app-full-width">
+    <input matInput name="createdDateTime" placeholder="Created Date Time" type="datetime-local" formControlName="createdDateTime">
+  </mat-form-field>
+</mat-grid-tile> -->
+
+            <!-- Last Updated Date Time -->
+            <!-- <mat-grid-tile>
+  <mat-form-field class="app-full-width">
+    <input matInput name="lastUpdatedDateTime" placeholder="Last Updated Date Time" type="datetime-local" formControlName="lastUpdatedDateTime">
+  </mat-form-field>
+</mat-grid-tile> -->
+          </mat-grid-list>
+          <button mat-stroked-button type="submit" [disabled]="!eventForm.valid">Create</button>
         </form>
       </div>
     </div>

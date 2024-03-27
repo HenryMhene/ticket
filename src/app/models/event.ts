@@ -6,6 +6,7 @@ export class Event extends Resource{
   description!: string;
   startDateTime!: string; // Consider using a Date object if applicable
   endDateTime!: string;   // Consider using a Date object if applicable
+  venue!: string;      // Venue name
   venueID!: string;       // Foreign Key referencing Venues
   organizerUserID!: string; // Foreign Key referencing Users
   categories!: string[];   // List of event categories

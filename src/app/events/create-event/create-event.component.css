@@ -21,3 +21,7 @@
   .example-form-field {
     width: 200px;
   }
+
+  .curved-border {
+    border-radius: 15px;
+  }
