@@ -1,10 +1,18 @@
-<div *ngIf="events && events.length > 0; else noEvents">
-  <div *ngFor="let event of events">
-    <h2>{{ event.eventName }}</h2>
-    <!-- Add more event details here -->
-  </div>
+<div *ngIf="events && events.length > 0" class="carousel-container">
+<owl-carousel-o [options]="customOptions">
+  <ng-container *ngFor="let event of events; let i = index">
+    <ng-template carouselSlide>
+      <div class="card">
+        <img [src]="'https://picsum.photos/200/300?random=' + i" class="card-img-top" alt="Event image">
+        <div class="card-body">
+          <h5 class="card-title">{{ event.eventName }}</h5>
+          <p class="card-text">{{ event.eventName }}</p>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+</owl-carousel-o>
 </div>
-
 <ng-template #noEvents>
   <p>No events found.</p>
 </ng-template>

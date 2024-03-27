@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Event } from '../models/event';
 import { ApiService } from '../services/api.service'
+import { get } from 'aws-amplify/api';
 
 @Injectable({
   providedIn: 'root'

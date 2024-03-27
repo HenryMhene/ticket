@@ -1,0 +1,12 @@
+.carousel-container {
+  width: 70%; /* Adjust this value as needed */
+  margin: 0 auto;
+}
+
+.carousel-container .card .card-img-top {
+  width: 100%; /* This will make the image take the full width of its container */
+  height: 300px; /* Adjust this value as needed */
+  object-fit: cover; /* This will make the image cover the entire area of the container without distorting the aspect ratio */
+}
+
+

@@ -70,7 +70,7 @@ import { GalleryModule } from 'ng-gallery';
 import { MyEventDashboardComponent } from './events/my-event/my-event-dashboard/my-event-dashboard.component';
 import { eventsComponent } from './events/events.component';
 import { EventListComponent } from './events/event-list/event-list.component';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 @NgModule({
   declarations: [
     AppComponent,
@@ -148,7 +148,8 @@ import { EventListComponent } from './events/event-list/event-list.component';
     PortalModule,
     ScrollingModule,
     // AmplifyUIAngularModule,
-    HttpClientModule
+    HttpClientModule,
+    CarouselModule
   ],
   providers: [LandingFixService],
   bootstrap: [AppComponent]

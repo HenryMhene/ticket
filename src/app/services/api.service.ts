@@ -1,5 +1,5 @@
 import { Observable, from } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, mergeMap, tap } from 'rxjs/operators';
 import { get } from 'aws-amplify/api';
 import { Injectable } from '@angular/core';
 
@@ -12,7 +12,8 @@ export class ApiService {
 
   getItems<T>(apiName: string, path: string): Observable<T[]> {
     return from(get({ apiName: apiName, path: path }).response).pipe(
-      map((response: any) => response.data as T[])
+      mergeMap(response => from(response.body.json())),
+      map((response: any) => response as T[])
     );
   }
 
