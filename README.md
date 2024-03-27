@@ -33,7 +33,7 @@ This is a Ticket Events application built with Angular and AWS Amplify. The appl
 3. Install the dependencies:
 
    ```bash
-   npm install
+   npm install --force
    ```
 
 4. Initialize Amplify:
