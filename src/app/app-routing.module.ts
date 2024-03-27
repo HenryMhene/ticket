@@ -10,6 +10,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { CreateEventComponent } from './events/create-event/create-event.component';
 import { MyEventDashboardComponent } from './events/my-event/my-event-dashboard/my-event-dashboard.component';
 import { eventsComponent } from './events/events.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   {
@@ -17,11 +18,15 @@ const routes: Routes = [
     component: LandingPageComponent,
     data: { allowHeader: true, allowEventHeader: false }
   },
+  { path: 'user-profile',
+    component: UserProfileComponent,
+    data: { allowHeader: true, allowEventHeader: false }
+   },
   {
     path: 'auth',
     component: AuthComponent,
     canActivate: [UnauthGuard],
-    data: { allowHeader: true, allowEventHeader: false, allowMinHeader: true  }
+    data: { allowHeader: true, allowEventHeader: false, allowMinHeader: true }
   },
   {
     path: 'auth/sign-in',
@@ -31,7 +36,7 @@ const routes: Routes = [
   {
     path: 'auth/sign-up',
     component: SignUpComponent,
-    data: { allowHeader: false, allowEventHeader: false, allowMinHeader: true  }
+    data: { allowHeader: false, allowEventHeader: false, allowMinHeader: true }
   },
   // {
   //   path: 'auth/sign-up/:state',

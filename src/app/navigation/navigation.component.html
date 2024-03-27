@@ -89,6 +89,7 @@
         <button *ngIf="user && user.email_verified" mat-menu-item
           routerLink="/account/payment_methods">Payments</button>
         <button *ngIf="user && user.email_verified" mat-menu-item [matMenuTriggerFor]="settings">Settings</button>
+        <button mat-menu-item routerLink="/user-profile">Profile</button>
         <button mat-menu-item routerLink="/events/create-event">Create Events</button>
         <button mat-menu-item (click)="authenticator.signOut();">Logout</button>
       </mat-menu>

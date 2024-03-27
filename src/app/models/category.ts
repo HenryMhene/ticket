@@ -1,7 +1,7 @@
 import { Resource } from './Resource';
 
 export class Category extends Resource {
-  id: string;
+  override id: string;
   title: string;
   isRoot: boolean;
 

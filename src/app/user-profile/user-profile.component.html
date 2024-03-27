@@ -1,0 +1,54 @@
+<section class="ticket-section">
+  <span class="ticket-span">
+    <div class="ticket-div">
+      <div class="ticket-container">
+        <div *ngIf="loading">
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+        <div class="profile-container">
+          <h1>User Profile</h1>
+          <div class="profile-content">
+            <div class="profile-picture">
+              <img [src]="user.profilePictureUrl" alt="Profile Picture">
+            </div>
+            <div class="profile-details">
+              <mat-form-field class="app-full-width">
+                <input matInput required name="username" placeholder="Username" type="text" [(ngModel)]="user.username">
+              </mat-form-field>
+              <mat-form-field class="app-full-width">
+                <input matInput required name="firstName" placeholder="First Name" type="text"
+                  [(ngModel)]="user.firstName">
+              </mat-form-field>
+              <mat-form-field class="app-full-width">
+                <input matInput required name="lastName" placeholder="Last Name" type="text"
+                  [(ngModel)]="user.lastName">
+              </mat-form-field>
+              <mat-form-field class="app-full-width">
+                <input matInput required name="email" placeholder="Email" type="email" [(ngModel)]="user.email">
+              </mat-form-field>
+              <mat-form-field class="app-full-width">
+                <input matInput required name="mobileNumber" placeholder="Mobile Number" type="tel"
+                  [(ngModel)]="user.mobileNumber">
+              </mat-form-field>
+              <mat-form-field class="app-full-width">
+                <input matInput required name="mobileCountryCode" placeholder="Mobile Country Code" type="text"
+                  [(ngModel)]="user.mobileCountryCode">
+              </mat-form-field>
+              <mat-form-field class="app-full-width">
+                <textarea matInput name="userDescription" placeholder="User Description"
+                  [(ngModel)]="user.userDescription"></textarea>
+              </mat-form-field>
+              <mat-form-field class="app-full-width">
+                <input matInput name="location" placeholder="Location" type="text" [(ngModel)]="user.location">
+              </mat-form-field>
+              <mat-form-field class="app-full-width">
+                <input matInput name="geoLocation" placeholder="Geo Location" type="text"
+                  [(ngModel)]="user.geoLocation">
+              </mat-form-field>
+              <mat-form-field class="app-full-width">
+                <input matInput required name="password" placeholder="Password" type="password"
+                  [(ngModel)]="user.password">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>

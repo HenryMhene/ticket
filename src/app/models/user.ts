@@ -1,43 +1,34 @@
 import { Resource } from './Resource';
-import { Review } from './review';
+import { Ticket } from './ticket';
 export class User extends Resource {
-    Id: string | undefined;
-    UserName: string | undefined;
-    FirstName: string | undefined;
-    LastName: string | undefined;
-    Picture: string | undefined;
-    EmailVerified: boolean | undefined;
-    PaymentVerified: boolean | undefined;
-    Rating: string | number | undefined;
-    UserDescription: string | undefined;
-    Birthday: string | undefined;
-    TagLine: string | undefined;
-    UserLocation: string | undefined;
-    GeoLocation: string | undefined;
-    LocationLng: string | undefined;
-    CompletedTasks: number | undefined;
-    AssignedTasks: number | undefined;
-    CompletionRate: number | undefined;
-    ObsidianVerified: boolean | undefined;
-    MobileNumber!: string;
-    MobileCountryCode!: string;
-    UserEmail!: string;
-    NotificationEmail: string | undefined;
-    Active: boolean | undefined;
-    UserStatus: string | undefined;
-    SendEmail: boolean | undefined;
-    SendSMS: boolean | undefined;
-    SendWhatsApp: boolean | undefined;
-    ProfilePercentage: string | undefined;
-    configPayment: boolean | undefined;
-    configProfile: boolean | undefined;
-    configNotifications: boolean | undefined;
-    configSkills: boolean | undefined;
-    CreatedAt: string | undefined;
-    TempCreatedAt?: string | undefined;
-    ReceivedReviews: Array<Review> | undefined;
-    Abn: string | undefined;
-    Password!: string;
-    DisplayName: string | undefined;
-    Seller: string | undefined;
+  override id!: string;
+  username!: string;
+  firstName!: string;
+  lastName!: string;
+  profilePictureUrl?: string;
+  email!: string;
+  emailVerified!: boolean;
+  mobileNumber!: string;
+  mobileCountryCode!: string;
+  paymentVerified!: boolean;
+  userDescription?: string;
+  birthday?: Date;
+  location?: string;
+  geoLocation?: string;
+  active!: boolean;
+  userStatus?: string;
+  notificationPreferences: {
+      email: boolean;
+      sms: boolean;
+      whatsapp: boolean;
+  } = {
+      email: true,
+      sms: true,
+      whatsapp: true,
+  };
+  createdAt!: Date;
+  updatedAt!: Date;
+  purchasedTickets?: Array<Ticket>;
+  favoriteEvents?: Array<Event>;
+  password!: string;
 }
