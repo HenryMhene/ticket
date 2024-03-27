@@ -99,7 +99,7 @@ Before submitting a pull request, please make sure your code follows our coding 
 
 ### Pull Requests
 
-- Fork the repository and create your branch from `master`
+- Fork the repository and create your branch from `main`
 - If you've added code that should be tested, add tests
 - If you've changed APIs, update the documentation
 - Ensure the test suite passes
