@@ -55,9 +55,6 @@ export class NavigationComponent {
   async reloadHeader() {
 
     await getCurrentUser().then(async data => {
-      console.log(this.auth.authStatus)
-      console.log(this.auth.user)
-      console.log(data)
       // this.user =  data;
 
       // await Auth.currentAuthenticatedUser().then(async response => {
@@ -89,7 +86,6 @@ export class NavigationComponent {
 
 
     if(this.user && !this.auth.authStatus){
-      console.log("Signing Out");
         this.auth.signOut;
     }
 
