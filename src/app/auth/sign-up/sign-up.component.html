@@ -2,7 +2,9 @@
   <span class="ticket-span">
     <div class="ticket-div">
       <div class="ticket-container">
-
+        <div *ngIf="loading">
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
         <amplify-authenticator initialState="signUp" [services]="services">
           <ng-template amplifySlot="header">
             <div style="padding: var(--amplify-space-large); text-align: center">

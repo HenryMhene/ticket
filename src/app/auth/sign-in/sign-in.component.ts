@@ -14,12 +14,16 @@ export class SignInComponent {
 
   @Input() header: string = "Sign In";
   @Output() authFlow = new EventEmitter<string>();
+  loading: any;
 
   constructor(public authenticator: AuthenticatorService, private router: Router) {
     Amplify.configure(awsExports);
-
+    this.loading = true;
     this.authenticator = authenticator;
     authenticator.subscribe((data: any) => {
+      setTimeout(() => {
+        this.loading = false;
+      }, 1500);
       if (data.authStatus === "authenticated") {
         this.router.navigate(['/landing']);
       };

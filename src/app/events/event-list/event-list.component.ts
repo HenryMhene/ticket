@@ -37,12 +37,22 @@ export class EventListComponent implements OnInit {
     },
     nav: true
   }
+loading: any;
 
   constructor(private eventService: EventService) { }
 
   ngOnInit() {
+    this.loading = true;
+
+    // setTimeout(() => {
+
+
+    // }, 1500);
+
+
     this.eventService.getEvents().subscribe((events: Event[]) => {
       this.events = events;
+      this.loading = false;
     });
   }
 }

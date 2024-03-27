@@ -13,9 +13,15 @@ import { signUp } from 'aws-amplify/auth';
 })
 
 export class SignUpComponent {
+  loading: any;
 
   constructor(public authenticator: AuthenticatorService) {
     Amplify.configure(awsExports);
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500);
+
   }
 
   services = {
@@ -24,7 +30,7 @@ export class SignUpComponent {
         return {
           acknowledgement: 'You must agree to the Terms & Conditions',
         };
-      }else{
+      } else {
         return undefined;
       }
     },
