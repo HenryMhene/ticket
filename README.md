@@ -113,4 +113,3 @@ We look forward to your contributions! 🎉
 This project is licensed under the Obsydian Technologies License. For more information about this license, please contact Obsydian Technologies directly.
 ```
 
-Please replace `<repository-url>` with the actual URL of your repository, and fill in the other placeholders according to your actual project structure and needs. Note that the GIF URL should be replaced with the URL of your preferred GIF.
