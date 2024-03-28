@@ -72,6 +72,7 @@ import { eventsComponent } from './events/events.component';
 import { EventListComponent } from './events/event-list/event-list.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { HelpCenterComponent } from './help-center/help-center.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +90,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MyEventDashboardComponent,
     eventsComponent,
     EventListComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    HelpCenterComponent
 
   ],
   imports: [
