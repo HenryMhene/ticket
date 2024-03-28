@@ -1,0 +1,11 @@
+.search-box {
+    width: 50%;
+  }
+
+.search-container {
+    // display: flex;
+    justify-content: center;
+    // --align-items: flex-start;
+    height: 100vh;
+    padding-top: 10vh; // This moves the search box a quarter down from the top of the page
+  }
