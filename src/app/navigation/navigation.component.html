@@ -109,9 +109,12 @@
       <div style="float: right; padding-top: 6px;">
         <button *ngIf="!mobileQuery.matches" routerLink="/events" mat-button>Events</button>
         <button *ngIf="!mobileQuery.matches" routerLink="/events/create-event" mat-button>Create Events</button>
-        <button *ngIf="!mobileQuery.matches" routerLink="/help-centre" mat-button>Help Centre
-          <!-- <span matSuffix><mat-icon style="color: white;">menu</mat-icon></span> -->
-        </button>
+        <button *ngIf="!mobileQuery.matches" [matMenuTriggerFor]="menu" mat-button>Help Centre <mat-icon style="margin-left: auto;">arrow_drop_down</mat-icon></button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/help-centre">Help Centre</button>
+            <button mat-menu-item routerLink="/find-your-tickets">Find your tickets</button>
+            <button mat-menu-item routerLink="/contact-your-event-organizer">Contact your event organizer</button>
+          </mat-menu>
         <span *ngIf="user?.email_verified">&nbsp;</span>
         <button *ngIf="user && !mobileQuery.matches && user.email_verified" routerLink="/account/notifications"
           mat-button><span *ngIf="numberOfNewNotifications > 0" matBadgeColor="warn"
