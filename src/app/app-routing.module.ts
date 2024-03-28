@@ -8,6 +8,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { MyEventComponent } from './events/my-event/my-event.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { CreateEventComponent } from './events/create-event/create-event.component';
+import { HelpCenterComponent } from './help-center/help-center.component';
 import { MyEventDashboardComponent } from './events/my-event/my-event-dashboard/my-event-dashboard.component';
 import { eventsComponent } from './events/events.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -80,6 +81,10 @@ const routes: Routes = [
   {
     path: 'events',
     component: eventsComponent,
+    data: { allowHeader: true, allowEventHeader: false }
+  },
+  { path: 'help-centre', 
+    component: HelpCenterComponent,
     data: { allowHeader: true, allowEventHeader: false }
   },
   // {
